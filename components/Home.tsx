@@ -2,7 +2,13 @@ import Image from "next/image";
 import styles from "../components/Home.module.css";
 import Footer from "./ui/Footer";
 import Time from "./ui/Time";
+import Timeline from "./ui/timeline";
 import Pagination from "./ui/Pagination";
+
+
+// import TextLoop from "react-text-loop";
+// import Link from "react-router-dom";
+// import { BodyText } from "./ui";
 
 import { MdBookmark } from "react-icons/md";
 
@@ -109,6 +115,7 @@ export default async function List(props) {
             </div>
             <div className={styles.tags_card}>
               <h1 className={styles.title}>标签</h1>
+              <a href="./Timeline">abc</a>
               <div className={styles.tags_item}>{tagsitem}</div>
             </div>   
           </aside>
