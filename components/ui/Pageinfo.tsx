@@ -2,7 +2,7 @@
  * @Author: zitons
  * @Date: 2024-02-21 09:19:46
  * @LastEditors: vhko
- * @LastEditTime: 2024-07-12 23:25:02
+ * @LastEditTime: 2024-07-13 21:52:21
  * @Description: 简介
  */
 import Image from "next/image";
@@ -23,7 +23,7 @@ const Pageinfo = (props) => {
                   fill={true}
                />
             </div>
-            <div className=" flex z-10 absolute flex-col gap-2 ">
+            <div className={Style.pagetext}>
                <div style={{ marginLeft: "-5px" }}>
                   {props.data.tags == undefined
                      ? console.log(null)

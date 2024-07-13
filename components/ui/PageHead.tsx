@@ -2,7 +2,7 @@
  * @Author: zitons
  * @Date: 2024-02-16 14:41:22
  * @LastEditors: vhko
- * @LastEditTime: 2024-06-09 09:22:33
+ * @LastEditTime: 2024-07-13 20:44:04
  * @LastEditors: vhko
  * @LastEditTime: 2024-05-12 14:33:56
  * @Description: 简介
@@ -31,6 +31,7 @@ export default async function PageHead(props) {
             </div>
 
             <p className={styles.title}>test</p>
+            <h1>asfasfda</h1>
             <div className={styles.grow}></div> 
             <div id="acc">
                <Dropdown title={props.title} type={props.type} />
