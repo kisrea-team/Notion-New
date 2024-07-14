@@ -2,7 +2,7 @@
  * @Author: zitons
  * @Date: 2024-03-12 21:48:14
  * @LastEditors: vhko
- * @LastEditTime: 2024-07-13 22:37:49
+ * @LastEditTime: 2024-07-14 10:34:15
  * @Description: 简介
  */
 
@@ -34,10 +34,14 @@ export default async function Page() {
       dee: '这是个文章？!',
    }];
    const ListItems = test.map(list => (
-      <div className={style.list}>
-         <p>{list.name}</p>
-         <p>{list.dee}</p>
-      </div>
+      <ul className={style.list}>
+         <h2 className={style.ul_t}>{list.name}</h2>
+         <div>
+            <a href="#"><li>{list.dee}</li></a>
+            <a href="#"><li>{list.dee}</li></a>
+         </div>
+
+      </ul>
    ));
    return (
       <main>

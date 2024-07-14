@@ -23,6 +23,10 @@
 .list {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 18px;
   margin-left: 15px;
+  align-items: center;
+}
+.ul_t {
+  font-size: 1.2rem;
 }
