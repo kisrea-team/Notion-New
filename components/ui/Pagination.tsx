@@ -2,7 +2,7 @@
  * @Author: zitons
  * @Date: 2024-03-03 21:36:18
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-03-16 20:19:47
+ * @LastEditTime: 2024-07-26 19:57:28
  * @Description: 简介
  */
 import styles from "./ui.module.css";
@@ -26,7 +26,7 @@ const Pagination = ({
     <div className="flex  gap-3">
       <ul className={styles.line}>
         <a
-          href={api + "/" + String(currentPage - 1)}
+          href={api + "" + String(currentPage - 1)}
           style={{ display: currentPage != 1 ? "block" : "none" }}
         >
           <svg
@@ -63,7 +63,7 @@ const Pagination = ({
       </ul>
       <ul className={styles.line}>
         <a
-          href={api + "/" + String(currentPage + 1)}
+          href={api + "" + String(currentPage + 1)}
           style={{ display: currentPage != pagesCount ? "block" : "none" }}
         >
           <svg

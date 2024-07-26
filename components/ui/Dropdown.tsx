@@ -9,7 +9,7 @@
 
 import style from "./ui.module.css";
 import { FaAngleDown } from "react-icons/fa6";
-import Archive from "../../app/(archive)/achieve/page"
+import Archive from "../../app/(achieve)/achieve/page"
 export default async function Dropdown(props) {
    const aaa = () => {
       if (document.getElementById("menu").classList.contains("aaa")) {
