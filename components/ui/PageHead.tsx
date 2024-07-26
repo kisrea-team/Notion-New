@@ -1,8 +1,8 @@
 /*
  * @Author: zitons
  * @Date: 2024-02-16 14:41:22
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-06-03 12:42:45
+ * @LastEditors: vhko
+ * @LastEditTime: 2024-07-14 10:03:06
  * @LastEditors: vhko
  * @LastEditTime: 2024-05-12 14:33:56
  * @Description: 简介
@@ -25,22 +25,24 @@ export default async function PageHead(props) {
 
    return (
       <>
-         <header className={styles.header} id="scrolled">
+         <header className={styles.pagehead} id="scrolled">
             <div className={styles.land} id="land">
                <p>sadasd</p>
             </div>
 
             <p className={styles.title}>test</p>
-            <div className={styles.grow}></div> 
+            <h1>asfasfda</h1>
+            <div className={styles.grow}></div>
             <div id="acc">
                <Dropdown title={props.title} type={props.type} />
             </div>
             <div className={styles.grow}></div>
-            <div className={styles.right}>
-               <ThemeSwitcher />
-            </div>
-            <div className={styles.btn_menu} onClick={btn}>
-               {/* <p></p> */}
+            <div className="flex" style={{ color: 'var(--white)' }}id="btn">
+               <div className={styles.right}>
+                  <ThemeSwitcher />
+               </div>
+               <div className={`${styles.btn_menus} ${styles.btn_menu}`} onClick={btn}>
+               </div>
             </div>
          </header>
       </>

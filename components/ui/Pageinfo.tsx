@@ -1,8 +1,8 @@
 /*
  * @Author: zitons
  * @Date: 2024-02-21 09:19:46
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2024-06-03 12:33:12
+ * @LastEditors: vhko
+ * @LastEditTime: 2024-07-13 21:52:21
  * @Description: 简介
  */
 import Image from "next/image";
@@ -23,7 +23,7 @@ const Pageinfo = (props) => {
                   fill={true}
                />
             </div>
-            <div className=" flex z-10 absolute items-center flex-col gap-2 justify-center">
+            <div className={Style.pagetext}>
                <div style={{ marginLeft: "-5px" }}>
                   {props.data.tags == undefined
                      ? console.log(null)
@@ -36,23 +36,23 @@ const Pageinfo = (props) => {
                      ))}
                </div>
                <div className={Style.title}>
-                  <p>[{props.data.type}]&nbsp;</p>
+
                   <p>
                      {props.data.icon}
                      {props.title}
                   </p>
-
+                  <span>&nbsp;#&nbsp;{props.data.type} </span>
                </div>
 
                <div>
-                  <p>{props.data?.summary}</p>
+                  {/* <p>{props.data?.summary}</p> */}
                   <div className="flex gap-4">
-                     <p className={Style.meta}>
+                     {/* <p className={Style.meta}>
                         <HiMiniUserCircle />
                         {props.data?.Person?.[0]?.name}
-                     </p>
+                     </p> */}
                      <p className={Style.meta}>
-                        <HiMiniClock />
+                        {/* <HiMiniClock /> */}
                         {props.data.date?.["start_date"]}
                      </p>
                   </div>

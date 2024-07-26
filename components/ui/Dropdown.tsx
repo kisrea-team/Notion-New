@@ -2,19 +2,20 @@
  * @Author: vhko
  * @Date: 2024-03-13 15:09:54
  * @LastEditors: vhko
- * @LastEditTime: 2024-05-12 14:29:27
+ * @LastEditTime: 2024-07-14 09:21:57
  * @FilePath: \NoDrogen\components\ui\Dropdown.tsx
  */
 // import { useState, useRef, useEffect } from "react";
 
 import style from "./ui.module.css";
 import { FaAngleDown } from "react-icons/fa6";
-
+import Archive from "../../app/(achieve)/achieve/page"
 export default async function Dropdown(props) {
    const aaa = () => {
       if (document.getElementById("menu").classList.contains("aaa")) {
          document.getElementById("menu").classList.remove("aaa");
-      } else {
+      }
+      else {
          document.getElementById("menu").classList.add("aaa");
       }
    };
@@ -37,11 +38,13 @@ export default async function Dropdown(props) {
    }
    return (
       <div className={`${style.menu} relative`}>
-         <div >
-            <button onClick={aaa} className={style.type_btn}>
-               <p>分类</p>
-               <FaAngleDown />
-            </button>
+         <div>
+            <a href="/achieve">
+               <button onClick={aaa} className={style.type_btn}>
+                  <p>归档</p>
+                  {/* <FaAngleDown /> */}
+               </button>
+            </a>
             <div
                id="menu"
                className={`${style.type_menu} hidden absolute end-0 z-10 w-auto rounded-md border border-gray-100 bg-white shadow-lg`}
@@ -50,10 +53,10 @@ export default async function Dropdown(props) {
                <div className="p-2">{typelist}</div>
             </div>
          </div>
-         
+
          <div>
             <button onClick={aaa} className={style.type_btn}>
-           <p>分类1</p>
+               <p>分类1</p>
                <FaAngleDown />
             </button>
             <div

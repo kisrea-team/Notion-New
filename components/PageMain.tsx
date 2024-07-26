@@ -34,10 +34,10 @@ export default function PageMain({ children }: { children: React.ReactNode }) {
    useEffect(() => {
       if (y > 400) {
          document.getElementById("scrolled").classList.add("head");
-         document.getElementById("acc").classList.add("acc");
+         // document.getElementById("acc").classList.add("acc");
       } else {
          document.getElementById("scrolled").classList.remove("head");
-         document.getElementById("acc").classList.remove("acc");
+         // document.getElementById("acc").classList.remove("acc");
       }
    }, [direction, y]);
    return <>{children}</>;
