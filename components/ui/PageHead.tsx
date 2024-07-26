@@ -2,7 +2,7 @@
  * @Author: zitons
  * @Date: 2024-02-16 14:41:22
  * @LastEditors: vhko
- * @LastEditTime: 2024-07-14 10:03:06
+ * @LastEditTime: 2024-07-20 21:00:46
  * @LastEditors: vhko
  * @LastEditTime: 2024-05-12 14:33:56
  * @Description: 简介
@@ -33,9 +33,9 @@ export default async function PageHead(props) {
             <p className={styles.title}>test</p>
             <h1>asfasfda</h1>
             <div className={styles.grow}></div>
-            <div id="acc">
+            {/* <div id="acc">
                <Dropdown title={props.title} type={props.type} />
-            </div>
+            </div> */}
             <div className={styles.grow}></div>
             <div className="flex" style={{ color: 'var(--white)' }}id="btn">
                <div className={styles.right}>

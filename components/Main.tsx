@@ -2,7 +2,7 @@
  * @Author: zitons
  * @Date: 2024-02-20 10:39:14
  * @LastEditors: vhko
- * @LastEditTime: 2024-07-14 10:21:56
+ * @LastEditTime: 2024-07-20 21:01:27
  * @Description: 简介
  */
 "use client";
@@ -34,11 +34,11 @@ export default function Main({ children }: { children: React.ReactNode }) {
    useEffect(() => {
       if (y > 40) {
          document.getElementById("scrolled").classList.add("head");
-         document.getElementById("acc").classList.add("acc");
+         // document.getElementById("acc").classList.add("acc");
          // document.getElementById("btn").classList.add("menus");
       } else {
          document.getElementById("scrolled").classList.remove("head");
-         document.getElementById("acc").classList.remove("acc");
+         // document.getElementById("acc").classList.remove("acc");
          // document.getElementById("btn").classList.remove("menus");
       }
    }, [direction, y]);
