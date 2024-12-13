@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
+    "build:core": "cd nodrogen-core && npm run build && npx next start -p 3001",
     "start": "next start",
     "product": "next build && next start",
+    "mix": "npm-run-all -p build:core product",
     "analyze": "cross-env ANALYZE=true next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
     "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
@@ -23,6 +25,7 @@
     "next": "^14.0.0",
     "next-themes": "^0.2.1",
     "notion-utils": "^6.16.0",
+    "npm-run-all": "^4.1.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^5.0.1",
