@@ -24,7 +24,7 @@ module.exports = withBundleAnalyzer({
          {
             source: '/',
             destination: '/1',
-            permanent: true,
+            permanent: false
          },
       ]
    },

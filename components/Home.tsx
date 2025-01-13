@@ -41,7 +41,8 @@ export default async function List(props) {
          <div className={styles.posts_info}>
             <div className={styles.posts_secondary}>
                <p className={styles.posts_title}>
-                  {list.icon}
+                  {list?.icon?.startsWith("h") ? <p><img src={list.icon} alt="emoji" height="30" width="30" /></p>
+                     : list.icon}
                   {list.title}
                </p>
                <div className={styles.posts_wrapper}>
@@ -75,8 +76,9 @@ export default async function List(props) {
 
    return (
       <>
-         <div className={styles.land} id="land">
-            <p>sadasd</p>
+         <div className={styles.land} id="">
+            <p>aaabbb
+            </p>
          </div>
          <div className={`${styles.container}`}>
             <div className={styles.bar}>
@@ -114,7 +116,7 @@ export default async function List(props) {
                      </div>
                   </div>
                   <div className={styles.tags_card}>
-                     <h1 className={styles.title}>标签</h1>
+                     <h1 className={styles.title}>标 签</h1>
                      <a href="./Timeline">abc</a>
                      <div className={styles.tags_item}>{tagsitem}</div>
                   </div>
