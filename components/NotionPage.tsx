@@ -37,7 +37,6 @@ const Code = dynamic(async () => {
       case "Mermaid":
         return import("../components/base/Mermaid").then((module) => {
           const { default: Mermaid } = module;
-
           return <Mermaid block={props} />;
         });
 
@@ -181,31 +180,31 @@ export const NotionPage = ({
           </div>
         }
       >
-      <PageMain>
-        <PageHead type={type} />
-        <Pageinfo title={title} data={data} />
-        <NotionRenderer
-          recordMap={recordMap}
-          fullPage={true}
-          // darkMode={true}
-          rootDomain={rootDomain}
-          rootPageId={rootPageId}
-          previewImages={true}
-          components={{
-            nextLink: Link,
-            Code,
-            Collection,
-            Equation,
-            // Pdf,
-            Modal,
-            Tweet,
-          }}
-        />
-        <div className="twikoos">
-          <Twikoo />
-        </div>
-        {/* <Footer name={"name"} /> */}
-      </PageMain>
+        <PageMain>
+          <PageHead type={type} />
+          <Pageinfo title={title} data={data} />
+          <NotionRenderer
+            recordMap={recordMap}
+            fullPage={true}
+            // darkMode={true}
+            rootDomain={rootDomain}
+            rootPageId={rootPageId}
+            previewImages={true}
+            components={{
+              nextLink: Link,
+              Code,
+              Collection,
+              Equation,
+              // Pdf,
+              Modal,
+              Tweet,
+            }}
+          />
+          <div className="twikoos">
+            <Twikoo />
+          </div>
+          {/* <Footer name={"name"} /> */}
+        </PageMain>
       </Suspense>
     </>
   );
