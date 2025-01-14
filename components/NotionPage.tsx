@@ -4,17 +4,19 @@ import dynamic from "next/dynamic";
 // import Image from 'next/image'
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import cs from "classnames";
 import { getTextContent } from "notion-utils";
 import { ExtendedRecordMap } from "notion-types";
 import { NotionRenderer } from "react-notion-x";
 import TweetEmbed from "react-tweet-embed";
+import Image from 'next/image' // or import Image from 'next/legacy/image' if you use legacy Image
+import * as notion from '../components/base/notion'
 
 import "react-notion-x/src/styles.css";
 import "../components/notion.css";
 import "../app/globals.css";
-import "../components/ui/prism-vsc-dark-plus.css";
+import 'prismjs/themes/prism-tomorrow.css'
 // import styles from "../components/ui/styles.module.css";
+import 'katex/dist/katex.min.css'
 
 import PageMain from "./PageMain";
 import PageHead from "./ui/PageHead";
@@ -108,15 +110,9 @@ const Collection = dynamic(() =>
 // const Equation = dynamic(() =>
 //    import('react-notion-x/build/third-party/equation').then((m) => m.Equation)
 // )
-const Equation = dynamic(
-  () =>
-    import("../components/base/Equation").then(async (m) => {
-      // 化学方程式
-      //  await import('@/lib/mhchem')
-      return m.Equation;
-    }),
-  { ssr: false }
-);
+const Equation = dynamic(() =>
+  import('react-notion-x/build/third-party/equation').then((m) => m.Equation)
+)
 // const Pdf = dynamic(
 //   () => import('react-notion-x/build/third-party/pdf').then((m) => m.Pdf),
 //   {
@@ -191,6 +187,7 @@ export const NotionPage = ({
             rootPageId={rootPageId}
             previewImages={true}
             components={{
+              nextImage: Image, // or nextLegacyImage: LegacyImage,
               nextLink: Link,
               Code,
               Collection,
