@@ -17,10 +17,10 @@ export async function GET(
   await obj.disp();
   const wiki = obj.getWiki();
   const data = await obj.getPost(slug);
-  const notion = new NotionAPI();
-  const record_map = await notion.getPage(slug);
+  // const notion = new NotionAPI();
+  const record_map = await obj.getContent(slug);
 
 
-  
+
   return Response.json({ wiki, data, record_map });
 }

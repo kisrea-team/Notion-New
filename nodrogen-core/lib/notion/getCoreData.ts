@@ -1,6 +1,8 @@
 import { NotionAPI } from "notion-client";
 import { idToUuid, getTextContent, getDateValue } from "notion-utils";
 
+import { getPreviewImageMap } from './preview-images'
+
 export class Nodrogen {
   response: any;
   pageIds: any;
@@ -62,7 +64,7 @@ export class Nodrogen {
     //视图号
     try {
       this.response = await this.client.getPage(id);
-      //  console.log(this.response);
+      // console.log(this.response)
       // 处理结果
     } catch (error) {
       // 处理错误
@@ -329,5 +331,20 @@ export class Notion extends Nodrogen {
     }));
 
     return [pagesCount, pageNumber];
+  }
+
+
+  async getContent(slug: string): Promise<any[]> {
+    const recordMap = await this.client.getPage(slug);
+    console.log(recordMap)
+    const previewImageMap = await getPreviewImageMap(recordMap)
+      ; (recordMap as any).preview_images = previewImageMap
+
+
+
+
+
+    return recordMap;
+
   }
 }
