@@ -10,9 +10,9 @@
 }
 
 .notion-app {
-   --padding:15px;
-   padding-left: var(--padding);
-   padding-right: var(--padding);
+  --padding: 15px;
+  padding-left: var(--padding);
+  padding-right: var(--padding);
   margin: auto;
   margin-top: 70px;
   max-width: 70rem;
@@ -21,24 +21,28 @@
   background-color: initial;
 }
 
-.katex-display > .katex > .katex-html {
-  display: none;  
+.katex-display>.katex>.katex-html {
+  display: none;
 }
+
 .notion-full-width {
   box-sizing: border-box;
   --notion-max-width: calc(min(1920px, 98vw));
   padding-left: 0px;
   padding-right: 0px;
 }
+
 .notion-page-has-cover.notion-page-has-icon.notion-page-has-text-icon {
   padding-top: 2rem;
 }
+
 @media (min-width: 370px) and (max-width: 427px) {
   .notion-app {
     max-width: none;
     margin-top: initial;
     padding: initial;
   }
+
   .notion-full-width {
     --notion-max-width: none;
     padding-left: calc(var(--px) * 1.5);
@@ -46,20 +50,14 @@
   }
 }
 
-@media (min-width: 428px) and (max-width: 639px) {
-}
+@media (min-width: 428px) and (max-width: 639px) {}
 
-@media (min-width: 640px) and (max-width: 767px) {
-}
+@media (min-width: 640px) and (max-width: 767px) {}
 
-@media (min-width: 768px) and (max-width: 1023px) {
-}
+@media (min-width: 768px) and (max-width: 1023px) {}
 
-@media (min-width: 1024px) and (max-width: 1279px) {
-}
+@media (min-width: 1024px) and (max-width: 1279px) {}
 
-@media (min-width: 1280px) and (max-width: 1535px) {
-}
+@media (min-width: 1280px) and (max-width: 1535px) {}
 
-@media (min-width: 1536px) {
-}
+@media (min-width: 1536px) {}

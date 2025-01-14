@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import * as React from "react";
 import dynamic from "next/dynamic";
 // import Image from 'next/image'
@@ -9,7 +9,6 @@ import { ExtendedRecordMap } from "notion-types";
 import { NotionRenderer } from "react-notion-x";
 import TweetEmbed from "react-tweet-embed";
 import Image from 'next/image' // or import Image from 'next/legacy/image' if you use legacy Image
-import * as notion from '../components/base/notion'
 
 import "react-notion-x/src/styles.css";
 import "../components/notion.css";
@@ -22,10 +21,8 @@ import PageMain from "./PageMain";
 import PageHead from "./ui/PageHead";
 import Pageinfo from "./ui/Pageinfo";
 // import Footer from "../components/ui/Footer";
-
-import { createElement as h } from "react";
 import { Loading } from "../components/Loading";
-import { Suspense } from "react";
+// import { Suspense } from "react";
 
 export async function getStaticPaths() {
   return {
@@ -33,75 +30,9 @@ export async function getStaticPaths() {
     fallback: <Loading />,
   };
 }
-const Code = dynamic(async () => {
-  return function CodeSwitch(props) {
-    switch (getTextContent(props["block"]["properties"]["language"])) {
-      case "Mermaid":
-        return import("../components/base/Mermaid").then((module) => {
-          const { default: Mermaid } = module;
-          return <Mermaid block={props} />;
-        });
-
-      // return h(
-      //    dynamic(() => {
-      //      return import('./Mindmap').then(module => module.default)
-      //    }, { ssr: false }),
-      //    props
-      //  )
-      // return (
-      //   dynamic(() => {
-      //     return import('../components/Mermaid').then(module => module.default)
-      //   }, { ssr: false }),
-
-      // )
-      default:
-        return h(
-          dynamic(() => {
-            return import("react-notion-x/build/third-party/code").then(
-              async (module) => {
-                // Additional prismjs syntax
-                await Promise.all([
-                  import("prismjs/components/prism-markup-templating"),
-                  import("prismjs/components/prism-markup"),
-                  import("prismjs/components/prism-bash"),
-                  import("prismjs/components/prism-c"),
-                  import("prismjs/components/prism-cpp"),
-                  import("prismjs/components/prism-csharp"),
-                  import("prismjs/components/prism-docker"),
-                  import("prismjs/components/prism-java"),
-                  import("prismjs/components/prism-js-templates"),
-                  import("prismjs/components/prism-coffeescript"),
-                  import("prismjs/components/prism-diff"),
-                  import("prismjs/components/prism-git"),
-                  import("prismjs/components/prism-go"),
-                  import("prismjs/components/prism-graphql"),
-                  import("prismjs/components/prism-handlebars"),
-                  import("prismjs/components/prism-less"),
-                  import("prismjs/components/prism-makefile"),
-                  import("prismjs/components/prism-markdown"),
-                  import("prismjs/components/prism-objectivec"),
-                  import("prismjs/components/prism-ocaml"),
-                  import("prismjs/components/prism-python"),
-                  import("prismjs/components/prism-reason"),
-                  import("prismjs/components/prism-rust"),
-                  import("prismjs/components/prism-sass"),
-                  import("prismjs/components/prism-scss"),
-                  import("prismjs/components/prism-solidity"),
-                  import("prismjs/components/prism-sql"),
-                  import("prismjs/components/prism-stylus"),
-                  import("prismjs/components/prism-swift"),
-                  import("prismjs/components/prism-wasm"),
-                  import("prismjs/components/prism-yaml"),
-                ]);
-                return module.Code;
-              }
-            );
-          }),
-          props
-        );
-    }
-  };
-});
+const Code = dynamic(() =>
+  import('react-notion-x/build/third-party/code').then((m) => m.Code)
+)
 const Collection = dynamic(() =>
   import("react-notion-x/build/third-party/collection").then(
     (m) => m.Collection
@@ -120,10 +51,7 @@ const Equation = dynamic(() =>
 //   }
 // )
 const Modal = dynamic(
-  () => import("react-notion-x/build/third-party/modal").then((m) => m.Modal),
-  {
-    ssr: false,
-  }
+  () => import("react-notion-x/build/third-party/modal").then((m) => m.Modal)
 );
 
 const Tweet = ({ id }: { id: string }) => {
@@ -136,7 +64,6 @@ const Twikoo = dynamic(() =>
 
 export const NotionPage = ({
   recordMap,
-  previewImagesEnabled,
   rootPageId,
   rootDomain,
   title,
@@ -153,56 +80,53 @@ export const NotionPage = ({
   data: Object;
   // icon: string;
 }) => {
-  const router = useRouter();
-  console.log(type);
   //   const footer = React.useMemo(() => <Footer />, []);
   if (!recordMap) {
     return null;
   }
-
-  if (typeof window !== "undefined") {
-    const keys = Object.keys(recordMap?.block || {});
-    const block = recordMap?.block?.[keys[0]]?.value;
-    const g = window as any;
-    g.recordMap = recordMap;
-    g.block = block;
-  }
+  // if (typeof window !== "undefined") {
+  //   const keys = Object.keys(recordMap?.block || {});
+  //   const block = recordMap?.block?.[keys[0]]?.value;
+  //   const g = window as any;
+  //   g.recordMap = recordMap;
+  //   g.block = block;
+  // }
   return (
     <>
-      <Suspense
+      {/* <Suspense
         fallback={
           <div>
             <Loading />
           </div>
         }
-      >
-        <PageMain>
-          <PageHead type={type} />
-          <Pageinfo title={title} data={data} />
-          <NotionRenderer
-            recordMap={recordMap}
-            fullPage={true}
-            // darkMode={true}
-            rootDomain={rootDomain}
-            rootPageId={rootPageId}
-            previewImages={true}
-            components={{
-              nextImage: Image, // or nextLegacyImage: LegacyImage,
-              nextLink: Link,
-              Code,
-              Collection,
-              Equation,
-              // Pdf,
-              Modal,
-              Tweet,
-            }}
-          />
-          <div className="twikoos">
-            <Twikoo />
-          </div>
-          {/* <Footer name={"name"} /> */}
-        </PageMain>
-      </Suspense>
+      > */}
+      <PageMain>
+        <PageHead type={type} />
+        <Pageinfo title={title} data={data} />
+        <NotionRenderer
+          recordMap={recordMap}
+          fullPage={true}
+          // darkMode={true}
+          rootDomain={rootDomain}
+          rootPageId={rootPageId}
+          previewImages={true}
+          components={{
+            nextImage: Image, // or nextLegacyImage: LegacyImage,
+            nextLink: Link,
+            Code,
+            Collection,
+            Equation,
+            // Pdf,
+            Modal,
+            Tweet,
+          }}
+        />
+        <div className="twikoos">
+          <Twikoo />
+        </div>
+        {/* <Footer name={"name"} /> */}
+      </PageMain>
+      {/* </Suspense > */}
     </>
   );
 };

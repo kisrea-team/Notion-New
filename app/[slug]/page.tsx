@@ -21,8 +21,8 @@ import Head from "../../components/ui/Head";
 import { getData } from "../../components/base/Node";
 
 export default async function Page({ params }) {
-  const { slug } = params;
-  const Main = dynamic(() => import("../../components/Main"), { ssr: false });
+  const { slug } = await params;
+  const Main = dynamic(() => import("../../components/Main"));
   const d = await getData("api/post/" + slug);
 
   return (
