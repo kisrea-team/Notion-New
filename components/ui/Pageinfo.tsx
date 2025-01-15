@@ -38,7 +38,9 @@ const Pageinfo = (props) => {
                <div className={Style.title}>
 
                   <p>
-                     {props.data.icon}
+
+                     {props.data?.icon?.startsWith("h") ? <img src={props.data.icon} alt="emoji" height="30" width="30" />
+                        : props.data.icon}
                      {props.title}
                   </p>
                   <span>&nbsp;#&nbsp;{props.data.type} </span>

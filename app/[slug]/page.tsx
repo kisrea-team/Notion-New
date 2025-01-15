@@ -19,7 +19,8 @@ import { Loading } from "../../components/Loading";
 import dynamic from "next/dynamic";
 import Head from "../../components/ui/Head";
 import { getData } from "../../components/base/Node";
-
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 export default async function Page({ params }) {
   const { slug } = await params;
   const Main = dynamic(() => import("../../components/Main"));
@@ -30,7 +31,7 @@ export default async function Page({ params }) {
       <Suspense
         fallback={
           <div>
-            <Loading />
+
           </div>
         }
       >

@@ -27,8 +27,8 @@ export async function GET(
   request: Request,
   { params }: { params: { slug: string[] } }
 ) {
-  const type = params.slug[0]; // 'a', 'b', or 'c'
-  const slug = params.slug[1]; // 'a', 'b', or 'c'
+  const type = await params.slug[0]; // 'a', 'b', or 'c'
+  const slug = await params.slug[1]; // 'a', 'b', or 'c'
 
   var obj = await new Notion();
   await obj.disp();

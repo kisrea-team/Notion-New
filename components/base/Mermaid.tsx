@@ -5,12 +5,13 @@
  * @LastEditTime: 2024-02-08 12:16:32
  * @Description: 简介
  */
+"use client"
 import { useEffect } from "react";
 import mermaid from "mermaid";
 import { getTextContent } from "notion-utils";
 import "../../app/globals.css";
 
-export default async function Mermaid(props) {
+export default function Mermaid(props) {
   const source = getTextContent(props["block"]["block"]["properties"]["title"]);
   // const container = useRef(null)
   // const [svg, setSVG] = useState('')

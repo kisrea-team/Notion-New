@@ -5,6 +5,7 @@
  * @LastEditTime: 2024-02-08 12:11:49
  * @Description: 简介
  */
+"use client"
 import React, { useEffect } from "react";
 
 export const Twikoo: React.FC = () => {

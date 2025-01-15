@@ -14,7 +14,7 @@ import ThemeSwitcher from "./ThemeSwitch";
 import Dropdown from "./Dropdown";
 // import Timeline from "./ui/timeline";
 
-export default async function PageHead(props) {
+export default function PageHead(props) {
    const btn = () => {
       if (document.getElementById("land").classList.contains("menu")) {
          document.getElementById("land").classList.remove("menu");
@@ -37,7 +37,7 @@ export default async function PageHead(props) {
                <Dropdown title={props.title} type={props.type} />
             </div> */}
             <div className={styles.grow}></div>
-            <div className="flex" style={{ color: 'var(--white)' }}id="btn">
+            <div className="flex" style={{ color: 'var(--white)' }} id="btn">
                <div className={styles.right}>
                   <ThemeSwitcher />
                </div>

@@ -14,8 +14,10 @@ import style from "./ui.module.css";
 import ThemeSwitcher from "./ThemeSwitch";
 import Dropdown from "./Dropdown";
 // import Timeline from "./ui/timeline";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-export default async function Head(props) {
+export default function Head(props) {
    const btn = () => {
       if (document.getElementById("land").classList.contains("menu")) {
          document.getElementById("land").classList.remove("menu");
@@ -31,7 +33,7 @@ export default async function Head(props) {
                <p>sadasd</p>
             </div>
 
-            <p className={styles.title}>{props.title}</p>
+            <p className={styles.title}>{props.title || <Skeleton />}</p>
             <div className={styles.grow}></div>
             {/* <div id="acc">
                <Dropdown title={props.title} type={props.type} />

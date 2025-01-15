@@ -14,7 +14,7 @@ export default async function Page({ params }) {
   const { slug } = await params;
   const d = await getData("api/content/" + slug);
   // console.log(recordMap)
-  console.log(d.wiki["type"])
+  // console.log(d.wiki["type"])
   if (!d.data.title) {
     return;
   }

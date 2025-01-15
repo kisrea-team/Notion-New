@@ -8,10 +8,10 @@
 export async function getData(to) {
 
   console.log(`run ${process.env.NEXT_PUBLIC_PROTOCOL + process.env.NEXT_PUBLIC_BLOG + "/" + to + "/"}`)
-  const data = await fetch(`${process.env.NEXT_PUBLIC_PROTOCOL + process.env.NEXT_PUBLIC_BLOG + "/" + to + "/"}`, {
-    cache: 'no-store'
-  }).then((res) => res.json());
-  return data;
+
+  const data = await await fetch(`${process.env.NEXT_PUBLIC_PROTOCOL + process.env.NEXT_PUBLIC_BLOG + "/" + to + "/"}`)
+  const posts = await data.json()
+  return posts;
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 

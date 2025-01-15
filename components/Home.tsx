@@ -41,7 +41,7 @@ export default async function List(props) {
          <div className={styles.posts_info}>
             <div className={styles.posts_secondary}>
                <p className={styles.posts_title}>
-                  {list?.icon?.startsWith("h") ? <p><img src={list.icon} alt="emoji" height="30" width="30" /></p>
+                  {list?.icon?.startsWith("h") ? <img src={list.icon} alt="emoji" height="30" width="30" />
                      : list.icon}
                   {list.title}
                </p>
