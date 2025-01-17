@@ -6,7 +6,7 @@
  * @FilePath: \NoDrogen\readme.md
 -->
 <!-- 自豪地开源：<br/> -->
-# 截至到202/04/1 建议查看[dev分支](https://github.com/kisrea-team/Notion-New/tree/dev)
+# 截至到2025/01/17 建议查看[dev分支](https://github.com/kisrea-team/Notion-New/tree/dev)
 <img src="https://i0.imgs.ovh/2024/02/08/ba1c2.png" width="200" height="200">
 
 <!-- [![license](https://img.shields.io/badge/License-MIT-blue)](https://github.com/kisrea-team/NoDrogen/blob/main/LICENSE) -->
@@ -19,10 +19,9 @@ NoDrogen是使用Next.js开发、React-Notion-X渲染的Notion写作博客系统
 ![预览](https://i0.imgs.ovh/2024/02/08/bapfO.png)
 # 以下内容暂不完善
 ## 基本特性
-* 一式两端，Core和Client，高度分离，更快速。
-
-* NoDrogen支持几乎所有Notion的块。</br>最快每一个月一个二级版本，相同二级版本之间(1.2.x)都能任意兼容。
-* 核心大小仅300kb，专注于Notion内容渲染。
+* 一式两端，Core和Client，可分离可组合。
+* Faster Core，进行持续优化。
+* NoDrogen支持几乎所有Notion的块。
 * 重视SEO
 
 # 快速构建
@@ -72,7 +71,7 @@ npm run start
 
 ### Vercel（推荐）
 
-## 注意：需要部署两次，一个Core，一个Client，配置的环境变量在前提配置中。
+## 
 1.启动Vercel<br />
 2.选择Next.js<br />
 ![20240125153353](https://github.com/kisrea-team/NoDrogen/assets/49295983/c5d256f3-e56e-42e6-8d86-8aae1bfd63b8)<br />
