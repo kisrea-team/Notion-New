@@ -26,13 +26,7 @@ import Pageinfo from "./ui/Pageinfo";
 const Code = dynamic(async () => {
   return function CodeSwitch(props) {
     switch (getTextContent(props["block"]["properties"]["language"])) {
-      case 'Mermaid':
-        return h(
-          dynamic(() => {
-            return import('../components/base/Mermaid').then(module => module.default)
-          }),
-          props
-        )
+
       default:
         return h(
           dynamic(() => {

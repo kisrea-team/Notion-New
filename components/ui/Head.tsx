@@ -26,42 +26,50 @@ export default function Head(props) {
       }
    };
 
+   const hello = "hello"
    return (
-      <>
-         <header className={styles.header} id="scrolled">
-            <div className={styles.land} id="land">
-               <p>sadasd</p>
-            </div>
+      <header className={styles.header} id="scrolled">
+         {/* <Skeleton /> */}
 
-            <p className={styles.title}>{props.title || <Skeleton />}</p>
-            <div className={styles.grow}></div>
-            {/* <div id="acc">
+         {/* <div className={styles.land} id="land">
+            <p>sadasd</p>
+         </div> */}
+
+
+
+         {/* {props.title || <Skeleton count={10} height={11} />} */}
+         {/* {<Skeleton />} */}
+         {/* {hello} */}
+         <div className={styles.title} style={{ width: 100, color: "pink" }}>{props.title || <Skeleton />}</div>
+
+
+         <div className={styles.grow}></div>
+         {/* <div id="acc">
                <Dropdown title={props.title} type={props.type} />
             </div> */}
-            <div className={`${style.menu} relative`}>
-               <div>
-                  <a href="/achieve">
-                     <button className={style.type_btn}>
-                        <p>归档</p>
-                        {/* <FaAngleDown /> */}
-                     </button>
-                  </a>
-               </div>
-
-               <div>
+         <div className={`${style.menu} relative`}>
+            <div>
+               <a href="/achieve">
                   <button className={style.type_btn}>
-                     <p>分类1</p>
+                     <p>归档</p>
+                     {/* <FaAngleDown /> */}
                   </button>
-               </div>
+               </a>
             </div>
-            <div className={styles.grow}></div>
-            <div className={styles.right}>
-               <ThemeSwitcher />
+
+            <div>
+               <button className={style.type_btn}>
+                  <p>分类1</p>
+               </button>
             </div>
-            <div className={styles.btn_menu} onClick={btn}>
-            </div>
-         </header>
-      </>
+         </div>
+         <div className={styles.grow}></div>
+         <div className={styles.right}>
+            <ThemeSwitcher />
+         </div>
+         <div className={styles.btn_menu} onClick={btn}>
+         </div>
+      </header>
    );
 }
 
