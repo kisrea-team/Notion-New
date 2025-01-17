@@ -64,7 +64,7 @@ export class Nodrogen {
     //视图号
     try {
       this.response = await this.client.getPage(id);
-      // console.log(this.response)
+      console.log(this.response)
       // 处理结果
     } catch (error) {
       // 处理错误
@@ -87,29 +87,31 @@ export class Nodrogen {
     let q: number = 0;
     //console.log(rawProperties);
     for (let i = 0; i < rawProperties.length; i++) {
-      if (rawProperties[i][1]["name"] == "type") {
-        q++;
-        for (let j = 0; j < rawProperties[i][1]["options"].length; j++) {
-          this.typeObj.push(rawProperties[i][1]["options"][j]["value"]);
+      switch (rawProperties[i][1]["name"]) {
+
+
+        case "type": {
+          q++;
+          // for (let j = 0; j < rawProperties[i][1]["options"].length; j++) {
+          //   this.typeObj.push(rawProperties[i][1]["options"][j]["value"]);
+          // }
+          this.typeObj = Object.entries(rawProperties[i][1]["options"]).map((item) => item[1].value);
+
+          this.typeName = rawProperties[i][0];
+          // break;
         }
-        this.typeName = rawProperties[i][0];
-        // break;
-      }
-      if (rawProperties[i][1]["name"] == "date") {
-        this.dateName = rawProperties[i][0];
-        q++;
-      }
-      if (rawProperties[i][1]["name"] == "tags") {
-        this.tagObj = rawProperties[i][1]["options"];
-        q++;
-      }
-      if (q >= 3) {
-        break;
+        case "date": {
+          this.dateName = rawProperties[i][0];
+        }
+        case "tags": {
+          this.tagObj = rawProperties[i][1]["options"];
+        }
+
+
       }
     }
   }
 }
-
 export class Notion extends Nodrogen {
   getWiki(): any {
     const pageCover = this.mapImgUrl(
@@ -180,7 +182,7 @@ export class Notion extends Nodrogen {
           case "person": {
             const rawUsers = val.flat();
             const users = [];
-            for (let i = 0; i < rawUsers.length; i++) {
+            for (let i = 0; i < 1; i++) {
               if (rawUsers[i][0][1]) {
                 const userId = rawUsers[i][0];
                 const res: any = await this.client.getUsers(userId);
@@ -300,14 +302,20 @@ export class Notion extends Nodrogen {
         if (obj[item] == 1) {
           years[year] = [];
         }
-        let pageInfo: any = await this.getPost(filterPosts[i]["value"]["id"]);
 
-        years[year].push(pageInfo);
-      } else {
-        let pageInfo: any = await this.getPost(filterPosts[i]["value"]["id"]);
-        postsF.push(pageInfo);
       }
+
+
+
+      // let pageInfo: any = await this.getPost(filterPosts[i]["value"]["id"]);
+      // postsF.push(pageInfo);
+
     }
+
+    const postPromises = filterPosts.map((post: any) => this.getPost(post["value"]["id"]));
+
+    postsF = await Promise.all(postPromises);
+
     if (this.type && this.type == "1") {
       console.log(years);
       return years;
@@ -336,13 +344,17 @@ export class Notion extends Nodrogen {
 
   async getContent(slug: string): Promise<any[]> {
     const recordMap = await this.client.getPage(slug);
-    console.log(recordMap)
     const previewImageMap = await getPreviewImageMap(recordMap)
       ; (recordMap as any).preview_images = previewImageMap
+    // const person=await this.client.getPageProperty("Person", this.block?.[slug], recordMap)
+    // console.log(this.block?.[slug])
+    // const recordMap = await this.client.getCollectionData(
+    //   "5a58f56e-d7e8-4a06-b02d-1a2d3316b0ca",
+    //   "170dae80-3357-4825-b44a-d4c8d0e6ad10"
+    // )
 
 
-
-
+    // console.log(recordMap)
 
     return recordMap;
 

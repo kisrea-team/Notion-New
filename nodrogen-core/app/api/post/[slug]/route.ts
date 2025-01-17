@@ -11,7 +11,7 @@ export async function GET(
   request: Request,
   { params }: { params: { slug: string } }
 ) {
-  const slug = await params.slug; // 'a', 'b', or 'c'
+  const { slug } = await params; // 'a', 'b', or 'c'
   var obj = await new Notion();
   await obj.disp();
   const wiki = await obj.getWiki();
